@@ -23,7 +23,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh '. ~/.nvm/nvm.sh && npm install'
             }
         }
         stage('Test') {
