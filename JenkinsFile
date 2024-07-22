@@ -10,14 +10,14 @@ pipeline {
             steps {
                 // Install Node.js using Node Version Manager (NVM)
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                sh 'nvm install $NODE_VERSION'
-                sh 'nvm use $NODE_VERSION'
+                sh '. ~/.nvm/nvm.sh && nvm install $NODE_VERSION'
+                sh '. ~/.nvm/nvm.sh && nvm use $NODE_VERSION'
             }
         }
         stage('Install Dependencies') {
             steps {
                 // Install dependencies
-                sh 'npm install'
+                sh '. ~/.nvm/nvm.sh && npm install'
             }
         }
 
